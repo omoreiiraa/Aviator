@@ -1,13 +1,11 @@
 :root {
-    --bg-color: #0d0d0f;
-    --card-bg: rgba(25, 25, 30, 0.8);
+    --bg-color: #0b0b0e;
+    --card-bg: rgba(20, 20, 25, 0.9);
     --accent-red: #ff4b5c;
     --accent-green: #00e676;
     --text-primary: #ffffff;
     --text-secondary: #94a3b8;
     --glass-border: rgba(255, 255, 255, 0.05);
-    --font-main: 'Outfit', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
 }
 
 * {
@@ -21,42 +19,32 @@
 body {
     background: var(--bg-color);
     color: var(--text-primary);
-    font-family: var(--font-main);
+    font-family: 'Outfit', sans-serif;
     overflow: hidden;
     height: 100vh;
-    height: -webkit-fill-available;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .app-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     height: 100vh;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     padding: 10px;
-    gap: 15px;
+    gap: 10px;
 }
 
-/* Header & History */
+/* --- HEADER (TÍTULO) --- */
 .game-header {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px 15px;
     background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
+    border-radius: 12px;
+    padding: 10px 20px;
     border: 1px solid var(--glass-border);
-}
-
-.header-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* Centralizado no mobile */
     align-items: center;
-    width: 100%;
 }
 
 .logo {
@@ -65,44 +53,51 @@ body {
     gap: 8px;
     font-weight: 800;
     font-size: 1rem;
-    letter-spacing: 0.5px;
 }
 
 .logo .icon {
     color: var(--accent-red);
-    font-size: 1.2rem;
     transform: rotate(-45deg);
+    font-size: 1.2rem;
 }
 
 .logo span span {
     color: var(--accent-red);
 }
 
+/* --- INFOBAR (HISTÓRICO E SALDO) --- */
+.infobar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 8px 15px;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
 .history-container {
     display: flex;
     gap: 6px;
     overflow-x: auto;
-    width: 100%;
-    padding: 2px 0;
     scrollbar-width: none;
-    /* Firefox */
+    flex: 1;
 }
 
 .history-container::-webkit-scrollbar {
     display: none;
 }
 
-/* Chrome/Safari */
-
 .history-item {
     padding: 3px 10px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     font-size: 0.75rem;
-    font-family: var(--font-mono);
+    font-family: 'JetBrains Mono', monospace;
     color: var(--text-secondary);
-    white-space: nowrap;
     border: 1px solid var(--glass-border);
+    white-space: nowrap;
 }
 
 .history-item.high {
@@ -133,115 +128,74 @@ body {
     font-size: 1rem;
 }
 
-/* Game View */
+/* --- GAME VIEW --- */
 .game-view {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     min-height: 0;
 }
 
 .canvas-wrapper {
     flex: 1.5;
     background: radial-gradient(circle at 10% 90%, rgba(255, 75, 92, 0.05) 0%, transparent 40%),
-        var(--card-bg);
+        rgba(15, 15, 20, 1);
     border-radius: 20px;
     border: 1px solid var(--glass-border);
     position: relative;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .multiplier-display {
     font-size: 4rem;
-    /* Reduzido de 6rem */
     font-weight: 800;
-    font-family: var(--font-mono);
+    font-family: 'JetBrains Mono', monospace;
     z-index: 10;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .status-message {
     position: absolute;
-    top: 15%;
-    font-size: 0.9rem;
+    top: 10%;
+    font-size: 0.8rem;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .timer-display {
     position: absolute;
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 800;
     color: var(--accent-red);
     z-index: 20;
-    text-shadow: 0 0 30px rgba(255, 75, 92, 0.4);
 }
 
-/* Animation SVG */
-.animation-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-#gameGraph {
-    width: 100%;
-    height: 100%;
-}
-
-#planeIcon {
-    filter: drop-shadow(0 0 10px var(--accent-red));
-    fill: var(--accent-red);
-}
-
-/* Controls Panel */
+/* --- CONTROLLERS --- */
 .controls-panel {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 15px;
-    padding-bottom: 5px;
+    gap: 10px;
 }
 
-.bet-card,
-.info-card {
+.bet-card {
     background: var(--card-bg);
-    border-radius: 20px;
+    border-radius: 16px;
     padding: 15px;
     border: 1px solid var(--glass-border);
     display: flex;
     flex-direction: column;
-    /* Stacked at mobile */
-    gap: 15px;
-}
-
-.input-group {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.input-group label {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+    gap: 12px;
 }
 
 .input-wrapper {
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 8px 12px;
     display: flex;
     align-items: center;
-    gap: 8px;
     border: 1px solid var(--glass-border);
 }
 
@@ -258,7 +212,7 @@ body {
 .quick-bets {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
+    gap: 5px;
 }
 
 .quick-bets button {
@@ -266,23 +220,21 @@ body {
     border: 1px solid var(--glass-border);
     border-radius: 8px;
     color: var(--text-secondary);
-    padding: 8px 0;
-    font-size: 0.75rem;
-    font-weight: 600;
+    padding: 6px 0;
+    font-size: 0.7rem;
     cursor: pointer;
 }
 
 .action-btn {
     width: 100%;
-    height: 60px;
-    border-radius: 14px;
+    height: 55px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 0.2s;
 }
 
 .action-btn.bet {
@@ -294,8 +246,8 @@ body {
 }
 
 .action-btn:disabled {
-    filter: grayscale(1);
     opacity: 0.4;
+    filter: grayscale(1);
 }
 
 .action-btn .top {
@@ -305,74 +257,97 @@ body {
 }
 
 .action-btn .bottom {
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.65rem;
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Win Card */
+/* Win Card Popup */
 .info-card {
     display: none;
-    /* Show only when winning */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    z-index: 100;
     background: rgba(0, 230, 118, 0.95);
-    border: none;
-    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-radius: 20px;
+    z-index: 100;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 230, 118, 0.3);
 }
 
 .info-card.visible {
-    display: flex;
+    display: block;
+}
+
+.win-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #004d40;
 }
 
 .win-value {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: white;
 }
 
-/* Desktop Fixes */
-@media (min-width: 768px) {
+/* Desktop Responsive */
+@media (min-width: 900px) {
     .app-container {
         padding: 20px;
+        gap: 15px;
     }
 
-    .header-top {
-        width: auto;
-        gap: 40px;
-        justify-content: flex-start;
-    }
-
+    /* Junta Header e InfoBar no PC como era antes */
     .game-header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: none;
+        border: none;
+        padding: 0;
+        z-index: 100;
     }
 
-    .history-container {
+    .infobar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
         width: auto;
-        max-width: 50%;
+        min-width: 400px;
+        background: rgba(20, 20, 25, 0.6);
+        backdrop-filter: blur(10px);
+        z-index: 100;
+    }
+
+    .game-view {
+        margin-top: 60px;
+        /* Espaço para o header flutuante */
+    }
+
+    .canvas-wrapper {
+        flex: 2;
     }
 
     .multiplier-display {
-        font-size: 5.5rem;
+        font-size: 6rem;
     }
 
     .controls-panel {
-        grid-template-columns: 1fr;
+        grid-template-columns: 450px;
+        justify-content: center;
     }
 
     .bet-card {
         flex-direction: row;
-        height: 120px;
+        align-items: center;
+        height: 100px;
     }
 
     .action-btn {
-        width: 220px;
+        width: 180px;
         height: 100%;
     }
 }
@@ -396,4 +371,17 @@ body {
 .crashed .multiplier-display {
     color: var(--accent-red);
     animation: shake 0.2s infinite;
+}
+
+.animation-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#gameGraph {
+    width: 100%;
+    height: 100%;
 }

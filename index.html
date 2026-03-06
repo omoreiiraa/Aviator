@@ -17,24 +17,26 @@
 
 <body>
     <div class="app-container">
-        <!-- Header / History -->
+        <!-- Top Bar: Logo Only -->
         <header class="game-header">
-            <div class="header-top">
-                <div class="logo">
-                    <span class="icon">✈</span>
-                    <span class="text">AVIATOR<span>CRASH</span></span>
-                </div>
-                <div class="user-info">
-                    <div class="balance-card">
-                        <span class="label">SALDO</span>
-                        <span class="value" id="userBalance">R$ 1.000,00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="history-container" id="historyBar">
-                <!-- Last results will be injected here -->
+            <div class="logo">
+                <span class="icon">✈</span>
+                <span class="text">AVIATOR<span>CRASH</span></span>
             </div>
         </header>
+
+        <!-- Info Bar: History and Balance (Separated) -->
+        <div class="infobar">
+            <div class="history-container" id="historyBar">
+                <!-- Last results -->
+            </div>
+            <div class="user-info">
+                <div class="balance-card">
+                    <span class="label">SALDO</span>
+                    <span class="value" id="userBalance">R$ 1.000,00</span>
+                </div>
+            </div>
+        </div>
 
         <main class="game-view">
             <!-- Game Canvas / Animation Area -->
