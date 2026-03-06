@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviator Crash | Desafie a Sorte</title>
-    <meta name="description" content="O melhor jogo de crash casino. Aposte, veja o multiplicador subir e saia antes que o avião voe para longe!">
+    <meta name="description"
+        content="O melhor jogo de crash casino. Aposte, veja o multiplicador subir e saia antes que o avião voe para longe!">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Header / History -->
         <header class="game-header">
-            <div class="logo">
-                <span class="icon">✈</span>
-                <span class="text">AVIATOR<span>CRASH</span></span>
+            <div class="header-top">
+                <div class="logo">
+                    <span class="icon">✈</span>
+                    <span class="text">AVIATOR<span>CRASH</span></span>
+                </div>
+                <div class="user-info">
+                    <div class="balance-card">
+                        <span class="label">SALDO</span>
+                        <span class="value" id="userBalance">R$ 1.000,00</span>
+                    </div>
+                </div>
             </div>
             <div class="history-container" id="historyBar">
                 <!-- Last results will be injected here -->
-            </div>
-            <div class="user-info">
-                <div class="balance-card">
-                    <span class="label">SALDO</span>
-                    <span class="value" id="userBalance">R$ 1.000,00</span>
-                </div>
             </div>
         </header>
 
@@ -35,11 +42,12 @@
                 <div class="multiplier-display" id="multiplier">1.00x</div>
                 <div class="status-message" id="statusMessage">Aguardando próxima rodada...</div>
                 <div class="timer-display" id="roundTimer"></div>
-                
+
                 <!-- SVG Plane Animation Path -->
                 <div class="animation-container" id="animationContainer">
                     <svg id="gameGraph" viewBox="0 0 800 400">
-                        <path id="flightPath" d="M 0 400 Q 400 400 800 400" fill="none" stroke="rgba(255, 75, 92, 0.3)" stroke-width="3" />
+                        <path id="flightPath" d="M 0 400 Q 400 400 800 400" fill="none" stroke="rgba(255, 75, 92, 0.3)"
+                            stroke-width="3" />
                         <g id="planeGroup">
                             <text x="0" y="0" font-size="40" id="planeIcon">✈</text>
                         </g>
@@ -63,7 +71,7 @@
                             <button onclick="setBet(100)">100</button>
                         </div>
                     </div>
-                    
+
                     <button id="mainBtn" class="action-btn bet">
                         <span class="top">APOSTAR</span>
                         <span class="bottom">Aguardando...</span>
@@ -82,4 +90,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -47,6 +47,7 @@ function startNewRoundCycle() {
     elWinCard.classList.remove('visible');
     elMultiplier.textContent = "1.00x";
     elMultiplier.style.transform = "scale(1)";
+    elMultiplier.style.display = "none"; // Hide multiplier during countdown
     elStatus.textContent = "PRÓXIMA RODADA EM";
     elTimer.style.display = "block";
 
@@ -83,6 +84,7 @@ function launchFlight() {
     startTime = Date.now();
 
     elTimer.style.display = "none";
+    elMultiplier.style.display = "block"; // Show multiplier
     elStatus.textContent = "AVIÃO EM VOO";
     updateButtonState();
 
